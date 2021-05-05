@@ -11,12 +11,8 @@ public class Field extends JPanel {
     private ArrayList<BouncingBall>balls=new ArrayList<>();
     int counter =0;
     private boolean pause;
-
-
     private ScheduledExecutorService schedule=null;
-
     private double distanceBetweenBillyAndBall=0;
-
     public synchronized void SetFistance(double d){
         distanceBetweenBillyAndBall=d;
     }
@@ -26,27 +22,19 @@ public class Field extends JPanel {
 
     private double friction=0;
     private boolean isFriction=false;
-
     private double timeMachine=0;
-
     private boolean isMagneto=false;
-
     private double sandPaper=0;
     private boolean isSandPaper=false;
-
     private double snowBallX=0;
     private double snowBallY=0;
     private boolean isSnowBall=false;
-
     private String name;
     private boolean isTeam=false;
-
     private int xCord;
     private int yCord;
     private boolean isCharisma=false;
-
     private boolean isGrossFeeder=false;
-
     private boolean isStopSmallBalls=false;
     private boolean isStopSlowBalls=false;
     private boolean isSecondQuarterSpeed=false;
@@ -58,7 +46,6 @@ public class Field extends JPanel {
     private boolean isBlueStop=false;
     private boolean isFastStop=false;
     private boolean isBigStop=false;
-
 
     Runnable repaintCycle=new Runnable() {
         @Override
@@ -79,7 +66,6 @@ public class Field extends JPanel {
         balls.add(new BouncingBall(this,radius));
     }
 
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D canvas = (Graphics2D) g;
@@ -90,7 +76,6 @@ public class Field extends JPanel {
     public synchronized void pause() {
         pause = true;
     }
-
     public synchronized void canMove()
             throws InterruptedException {
         if (pause) {
@@ -101,13 +86,11 @@ public class Field extends JPanel {
         pause = false;
         notifyAll();
     }
-
-
+    
     //friction
     public synchronized boolean GetIsFriction(){
         return isFriction;
     }
-
     public void SetFriction(double friction) {
         if(friction>0&&friction<=60){
             this.friction = sandPaper;
@@ -127,8 +110,7 @@ public class Field extends JPanel {
     public void FrictionOff(){
         isFriction=false;
     }
-
-
+    
     //sandPaper
     public void SetSandPaper(double sandPaper) {
         if(sandPaper>0&&sandPaper<=10){
@@ -139,7 +121,6 @@ public class Field extends JPanel {
         }
         System.out.println(this.sandPaper);
     }
-
     public synchronized double GetSandPaper(){
         return sandPaper;
     }
@@ -231,8 +212,6 @@ public class Field extends JPanel {
     public synchronized boolean GetIsTeam(){
         return isTeam;
     }
-
-
     //charisma
     public void SetCords(int x,int y){
         xCord=x;
@@ -401,7 +380,6 @@ public class Field extends JPanel {
     public synchronized boolean GetIsStopBigBalls(){
         return isBigStop;
     }
-
 
     //stopFast
     public void IsStopFastBallsOn(){

@@ -17,8 +17,7 @@ public class BouncingBall{
     private boolean isOnBorder=false;
     private boolean isStopped=false;
 
-
-
+    
     public BouncingBall(Field field) {
         int maxRadius=40;
         int minRadius=3;
@@ -42,16 +41,12 @@ public class BouncingBall{
         speedX = 3*Math.cos(angle);
         speedY = 3*Math.sin(angle);
 
-       // speedX=0.1;
-       // speedY=0.1;
-
         color = new Color((float)Math.random(), (float)Math.random(),
                 (float)Math.random());
 
 
         x = Math.random()*(field.getSize().getWidth() - 2*radius) + radius;
         y = Math.random()*(field.getSize().getHeight() - 2*radius) + radius;
-
 
          thisThread= new Thread(myBalls);
 
@@ -81,7 +76,6 @@ public class BouncingBall{
         x= Math.random()*(field.getSize().getWidth() - 2*radius) + radius;
         y = Math.random()*(field.getSize().getHeight() - 2*radius) + radius;
 
-
         thisThread= new Thread(myBalls);
 
         thisThread.start();
@@ -90,7 +84,6 @@ public class BouncingBall{
     public String GetName(){
         return this.name;
     }
-
 
     public void paint(Graphics2D canvas) {
         canvas.setColor(color);
@@ -106,8 +99,6 @@ public class BouncingBall{
             canvas.setColor(Color.BLACK);
             canvas.drawString(name,(int)Math.round(x)+radius,(int)Math.round(y));
 
-
-
     }
     Runnable myBalls=new Runnable() {
         @Override
@@ -122,8 +113,6 @@ public class BouncingBall{
                 radius+=(int)Math.round((path* field.GetSnowBallY())/ field.GetSnowBallX());
             }
     }
-
-
     private void RunMethod(){
         try {
             while (true) {
@@ -149,7 +138,6 @@ public class BouncingBall{
 
         }
     }
-
     private void GrossFeederRunMethod(){
         double billyX = field.FindBigBilly().x;
         double billyY = field.FindBigBilly().y;
@@ -188,7 +176,6 @@ public class BouncingBall{
                 }
                 speedX=newSpeedX*(16-speed);
                 speedY=newSpeedY*(16-speed);
-
             }
             else {
                 if (field.GetIsCharisma()) {
@@ -328,8 +315,6 @@ public class BouncingBall{
              }
              return true;
          }
-
-
         else if(isStopped){
         isStopped=false;
         field.MinusCountStoppedBall();

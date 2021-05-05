@@ -7,19 +7,12 @@ public class MainFrame extends JFrame {
     private int width = 500;
     private int height = 450;
     private int time=0;
-
     private JMenuBar menu = new JMenuBar();
     private JMenu ballsMenu = new JMenu("Мячи");
     private JMenu controlMenu = new JMenu("Управление");
-
     private Field field=new Field();
-
     private JMenuItem newBallMenuItem;
-
     private JMenuItem sandPaperCountMenuItem;
-
-
-
     private JCheckBoxMenuItem sandPaperMenuItem;
     private JCheckBoxMenuItem stopBlueBalls;
     private JCheckBoxMenuItem stopGreenBalls;
@@ -36,10 +29,8 @@ public class MainFrame extends JFrame {
 
         sandPaperCountMenuItem=ballsMenu.add(sandPaperCountMenuItemAction);
         sandPaperCountMenuItem.setEnabled(true);
-
         sandPaperMenuItem = new JCheckBoxMenuItem("Наждачка");
-        controlMenu.add(sandPaperMenuItem);
-     
+        controlMenu.add(sandPaperMenuItem);  
         stopGreenBalls=new JCheckBoxMenuItem("Остановить зеленые мячи");
         controlMenu.add(stopGreenBalls);
         stopBlueBalls=new JCheckBoxMenuItem("Остановить голубые мячи");
@@ -47,7 +38,6 @@ public class MainFrame extends JFrame {
         sandPaperMenuItem.addItemListener(new sandPaperMenuItemListener());
         stopGreenBalls.addItemListener(new StopGreenBallsListener());
         stopBlueBalls.addItemListener(new StopBlueBallsListener());
-
         add(field, BorderLayout.CENTER);
         pack();
     }
@@ -59,7 +49,6 @@ public class MainFrame extends JFrame {
             sandPaperCountMenuItem.setEnabled(true);
        }
     };
-
     Action sandPaperCountMenuItemAction=new AbstractAction("Наждачка") {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
@@ -67,7 +56,6 @@ public class MainFrame extends JFrame {
             input = JOptionPane.showInputDialog(MainFrame.this,
                     "Введите значение наждачки", "Наждачка",
                     JOptionPane.QUESTION_MESSAGE);
-
             try{
                 Double in=0.0;
                 try{
@@ -96,7 +84,6 @@ public class MainFrame extends JFrame {
             }
         }
     }
- 
     class grossFeederMenuItemListener implements ItemListener {
     @Override
      public void itemStateChanged(ItemEvent itemEvent) {
@@ -114,12 +101,10 @@ public class MainFrame extends JFrame {
     }
 
     class MouseListener implements MouseMotionListener {
-
         @Override
         public void mouseDragged(MouseEvent mouseEvent) {
 
         }
-
         @Override
         public void mouseMoved(MouseEvent mouseEvent) {
             field.SetCords(mouseEvent.getX(),mouseEvent.getY());
